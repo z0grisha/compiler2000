@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Шуточный Компилятор</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1e1e1e;
+      color: #f1f1f1;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin: 20px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      max-width: 1200px;
+      height: 60%;
+      margin-bottom: 20px;
+    }
+
+    textarea, .output {
+      flex: 1;
+      margin: 10px;
+      padding: 15px;
+      background: #252526;
+      color: #d4d4d4;
+      border: 1px solid #3c3c3c;
+      resize: none;
+      font-size: 16px;
+      line-height: 1.4;
+      overflow: auto;
+    }
+
+    .output {
+      white-space: pre-wrap;
+    }
+
+    button {
+      background: #0e639c;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #1177bb;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      textarea, .output {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 Шуточный Компилятор 3000</h1>
+  <div class="container">
+    <textarea id="code" placeholder="Введите свой код здесь..."></textarea>
+    <div class="output" id="output">👉 Здесь появится магия после компиляции...</div>
+  </div>
+  <button onclick="compileCode()">Компилировать</button>
+
+  <script>
+    const jokes = [
+      "🧠 Компиляция завершена успешно:
+Но крокодил не смог понять,
+Зачем нам Node и как нажать.",
+      "🔥 Ошибка на строке 42:
+Бобёр забыл поставить точку с запятой,
+Теперь живёт он с HTML судьбой.",
+      "✅ Сборка прошла, но...
+Функция ушла в монастырь
+И больше не возвращается.",
+      "🚀 Оптимизация кода:
+Удалён весь проект
+Теперь точно багов нет!",
+      "🐸 Пойман exception:
+На болоте в коде сидит лягушка,
+Пишет Python, пьёт из кружки."
+    ];
+
+    function compileCode() {
+      const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+      document.getElementById("output").textContent = randomJoke;
+    }
+  </script>
+</body>
+</html>
