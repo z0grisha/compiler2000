@@ -155,7 +155,33 @@
         flex-direction: column;
       }
     }
-  </style>
+  
+    .dark {
+      background: #0d0d0d;
+      color: #e0e0e0;
+    }
+    .dark .card {
+      background: #1c1c1c;
+      color: #eee;
+    }
+    .dark textarea, .dark .output {
+      background: #2c2c2c;
+      color: #f1f1f1;
+      border-color: #555;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .typing {
+      border-right: .15em solid #666;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    </style>
+
 </head>
 <body onmousemove="parallax(event)">
   <div class="parallax-wrapper"><header>
@@ -168,7 +194,10 @@
       <textarea id="code" placeholder="Введите код..."></textarea>
       <div class="output" id="output">👉 Здесь появится результат</div>
     </div>
+    
     <button id="compile-btn">Проверить</button>
+    <button onclick="toggleTheme()" style="margin-top: 10px;">Сменить тему</button>
+
   </div>
 
   <script>
@@ -225,7 +254,31 @@
       const y = (e.clientY - window.innerHeight / 2) / window.innerHeight * amount;
       document.querySelector('.parallax-wrapper').style.transform = `translate(${x}px, ${y}px)`;
     }
+    
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    function typeOutput(text, el) {
+      el.textContent = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        el.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 25);
+    }
+
+    document.getElementById("compile-btn").addEventListener("click", function() {
+      const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+      const outputEl = document.getElementById("output");
+      outputEl.classList.remove("typing");
+      void outputEl.offsetWidth; // перезапуск анимации
+      outputEl.classList.add("typing");
+      typeOutput(randomJoke, outputEl);
+    });
     </script>
+
 
 </body>
 </html>
