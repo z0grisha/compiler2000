@@ -3,44 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Шуточный Компилятор</title>
+  <title>Юный техник</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #1976d2;
+      --primary-dark: #1565c0;
+      --background: #f5f5f5;
+      --surface: #ffffff;
+      --on-surface: #333;
+      --border-radius: 8px;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: #1e1e1e;
-      color: #f1f1f1;
-      font-family: monospace;
+      background: var(--background);
+      font-family: 'Roboto', sans-serif;
+      color: var(--on-surface);
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      background: var(--surface);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    header img {
+      max-height: 120px;
     }
 
     h1 {
-      margin: 20px 0;
+      margin-top: 10px;
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      border-radius: var(--border-radius);
+      width: 90%;
+      max-width: 1000px;
+      margin: 30px 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .container {
       display: flex;
       flex-direction: row;
-      width: 90%;
-      max-width: 1200px;
-      height: 60%;
-      margin-bottom: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     textarea, .output {
       flex: 1;
-      margin: 10px;
       padding: 15px;
-      background: #252526;
-      color: #d4d4d4;
-      border: 1px solid #3c3c3c;
-      resize: none;
-      font-size: 16px;
-      line-height: 1.4;
-      overflow: auto;
+      background: #fafafa;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+      font-size: 14px;
+      font-family: monospace;
+      min-height: 200px;
     }
 
     .output {
@@ -48,39 +82,41 @@
     }
 
     button {
-      background: #0e639c;
+      align-self: center;
+      background: var(--primary);
       color: white;
       border: none;
       padding: 12px 24px;
       font-size: 16px;
+      border-radius: var(--border-radius);
       cursor: pointer;
-      border-radius: 4px;
       transition: background 0.3s;
     }
 
     button:hover {
-      background: #1177bb;
+      background: var(--primary-dark);
     }
 
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        height: auto;
-      }
-
-      textarea, .output {
-        height: 200px;
       }
     }
   </style>
 </head>
 <body>
-  <h1>💻 Шуточный Компилятор 3000</h1>
-  <div class="container">
-    <textarea id="code" placeholder="Введите свой код здесь..."></textarea>
-    <div class="output" id="output">👉 Здесь появится магия после компиляции...</div>
+  <header>
+    <img src="https://i.ibb.co/yFGLcsC9/image.png" alt="Логотип" id="logo"/>
+    <h1>Юный техник</h1>
+  </header>
+
+  <div class="card">
+    <div class="container">
+      <textarea id="code" placeholder="Введите код..."></textarea>
+      <div class="output" id="output">👉 Здесь появится результат</div>
+    </div>
+    <button id="compile-btn">Проверить</button>
   </div>
-  <button id="compile-btn">Компилировать</button>
 
   <script>
     const jokes = [
