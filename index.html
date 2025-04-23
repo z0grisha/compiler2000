@@ -54,7 +54,7 @@
       font-family: 'Roboto', sans-serif;
       color: var(--on-surface);
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
     }
 
@@ -85,7 +85,7 @@
       margin: 30px 0;
       padding: 20px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 20px;
     }
 
@@ -97,6 +97,20 @@
     }
 
     textarea, .output {
+      flex: 1;
+      padding: 15px;
+      background: #fafafa;
+      color: #333;
+      border: 1px solid #bbb;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      font-family: monospace;
+      min-height: 300px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      overflow-y: auto;
+    }
       flex: 1;
       padding: 15px;
       background: #fafafa;
@@ -179,6 +193,20 @@
       overflow-wrap: break-word;
       overflow-y: auto;
     }
+      flex: 1;
+      padding: 15px;
+      background: #fafafa;
+      color: #333;
+      border: 1px solid #bbb;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      font-family: monospace;
+      min-height: 300px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      overflow-y: auto;
+    }
       word-break: break-word;
       white-space: pre-wrap;
       overflow-wrap: break-word;
@@ -192,7 +220,7 @@
       }
     
       .container {
-        flex-direction: column;
+        flex-direction: row;
       }
     }
   
@@ -226,6 +254,41 @@
 
   <script>
     const jokes = [
+      `🎤 Компиляция пошла, как бит на студии,
+   Пробелы на месте, я в коде как в ртуте.
+   Переменные танцуют, цикл качает,
+   let и const будто строки читают.
+   Исключение поймано — drop the mic,
+   JavaScript фристайл, делаю like.`,
+
+      `🔥 На if и else качаю сюжет,
+   Мой лог — мой рэп, мой код — мой ответ.
+   Try меня ловит, но я не падаю вниз,
+   Мой catch записал альбом на бис.
+   Браузер греется, flow как у тока,
+   Компиляция — это моя тусовка.`,
+
+      `💾 var был в прошлом, const — новый стиль,
+   Память не течёт, но качаю как vinil.
+   import мой бит, export мой хук,
+   Я деструктурировал трек и звук.
+   Нет return — нет проблем,
+   Я async/await читаю как рэп.`,
+
+      `🚀 Ошибка на линии, но рифмы целы,
+   Код мой летит, как ракета в пределы.
+   Пишу в JS, но флоу universal,
+   Это не баг — это freestyle reversal.
+   Ловлю синтаксис, будто он бит,
+   В консоли не ошибка — а хит.`,
+
+      `📟 new Promise? — только реальный стиль,
+   resolve мой трек, reject не влил.
+   forEach качает массивы как клуб,
+   Функции — мой флоу, объект — мой друг.
+   Тут не баги — тут bars и swagg,
+   Мой дебаг как баттл — ты просто lag.`,
+
       `💥 Компиляция качает, будто бит на студии,
    Строки как выстрел — прям в аудиторию.
    console.log читается как рэп,
